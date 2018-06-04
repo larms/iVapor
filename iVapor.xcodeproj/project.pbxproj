@@ -12,6 +12,19 @@
 		A41548D820BFD85A00580827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41548D620BFD85A00580827 /* Main.storyboard */; };
 		A41548DA20BFD85C00580827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41548D920BFD85C00580827 /* Assets.xcassets */; };
 		A41548DD20BFD85C00580827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41548DB20BFD85C00580827 /* LaunchScreen.storyboard */; };
+		A481318A20C41E5C003370C1 /* AcronymsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481318920C41E5C003370C1 /* AcronymsViewController.swift */; };
+		A481318C20C41EAB003370C1 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481318B20C41EAB003370C1 /* UsersViewController.swift */; };
+		A481318E20C41EDD003370C1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481318D20C41EDD003370C1 /* CategoriesViewController.swift */; };
+		A481319220C41F99003370C1 /* AcronymDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319120C41F99003370C1 /* AcronymDetailViewController.swift */; };
+		A481319420C41FBD003370C1 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319320C41FBD003370C1 /* CreateUserViewController.swift */; };
+		A481319620C4203B003370C1 /* CreateAcronymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319520C4203B003370C1 /* CreateAcronymViewController.swift */; };
+		A481319820C42065003370C1 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319720C42065003370C1 /* CreateCategoryViewController.swift */; };
+		A481319A20C420AE003370C1 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319920C420AE003370C1 /* SelectUserViewController.swift */; };
+		A481319C20C420E6003370C1 /* AddToCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319B20C420E6003370C1 /* AddToCategoryViewController.swift */; };
+		A48131A020C4217D003370C1 /* Acronym.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481319F20C4217D003370C1 /* Acronym.swift */; };
+		A48131A220C42187003370C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A120C42187003370C1 /* User.swift */; };
+		A48131A420C42190003370C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A320C42190003370C1 /* Category.swift */; };
+		A48131A620C42225003370C1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A520C42225003370C1 /* ErrorPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +35,19 @@
 		A41548D920BFD85C00580827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A41548DC20BFD85C00580827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A41548DE20BFD85C00580827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A481318920C41E5C003370C1 /* AcronymsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcronymsViewController.swift; sourceTree = "<group>"; };
+		A481318B20C41EAB003370C1 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		A481318D20C41EDD003370C1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		A481319120C41F99003370C1 /* AcronymDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcronymDetailViewController.swift; sourceTree = "<group>"; };
+		A481319320C41FBD003370C1 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		A481319520C4203B003370C1 /* CreateAcronymViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAcronymViewController.swift; sourceTree = "<group>"; };
+		A481319720C42065003370C1 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
+		A481319920C420AE003370C1 /* SelectUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
+		A481319B20C420E6003370C1 /* AddToCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCategoryViewController.swift; sourceTree = "<group>"; };
+		A481319F20C4217D003370C1 /* Acronym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acronym.swift; sourceTree = "<group>"; };
+		A48131A120C42187003370C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A48131A320C42190003370C1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A48131A520C42225003370C1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +80,9 @@
 		A41548D120BFD85A00580827 /* iVapor */ = {
 			isa = PBXGroup;
 			children = (
+				A481318820C41E38003370C1 /* ViewControllers */,
+				A481319D20C4212C003370C1 /* Models */,
+				A481319E20C42135003370C1 /* Utilities */,
 				A41548D220BFD85A00580827 /* AppDelegate.swift */,
 				A41548D420BFD85A00580827 /* ViewController.swift */,
 				A41548D620BFD85A00580827 /* Main.storyboard */,
@@ -62,6 +91,40 @@
 				A41548DE20BFD85C00580827 /* Info.plist */,
 			);
 			path = iVapor;
+			sourceTree = "<group>";
+		};
+		A481318820C41E38003370C1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A481318920C41E5C003370C1 /* AcronymsViewController.swift */,
+				A481318B20C41EAB003370C1 /* UsersViewController.swift */,
+				A481318D20C41EDD003370C1 /* CategoriesViewController.swift */,
+				A481319520C4203B003370C1 /* CreateAcronymViewController.swift */,
+				A481319120C41F99003370C1 /* AcronymDetailViewController.swift */,
+				A481319320C41FBD003370C1 /* CreateUserViewController.swift */,
+				A481319720C42065003370C1 /* CreateCategoryViewController.swift */,
+				A481319920C420AE003370C1 /* SelectUserViewController.swift */,
+				A481319B20C420E6003370C1 /* AddToCategoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A481319D20C4212C003370C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A481319F20C4217D003370C1 /* Acronym.swift */,
+				A48131A120C42187003370C1 /* User.swift */,
+				A48131A320C42190003370C1 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A481319E20C42135003370C1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A48131A520C42225003370C1 /* ErrorPresenter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +198,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A48131A220C42187003370C1 /* User.swift in Sources */,
+				A481319620C4203B003370C1 /* CreateAcronymViewController.swift in Sources */,
+				A48131A020C4217D003370C1 /* Acronym.swift in Sources */,
 				A41548D520BFD85A00580827 /* ViewController.swift in Sources */,
+				A481318C20C41EAB003370C1 /* UsersViewController.swift in Sources */,
+				A481318A20C41E5C003370C1 /* AcronymsViewController.swift in Sources */,
+				A481319420C41FBD003370C1 /* CreateUserViewController.swift in Sources */,
+				A481319220C41F99003370C1 /* AcronymDetailViewController.swift in Sources */,
+				A481319820C42065003370C1 /* CreateCategoryViewController.swift in Sources */,
+				A481319A20C420AE003370C1 /* SelectUserViewController.swift in Sources */,
 				A41548D320BFD85A00580827 /* AppDelegate.swift in Sources */,
+				A48131A620C42225003370C1 /* ErrorPresenter.swift in Sources */,
+				A481319C20C420E6003370C1 /* AddToCategoryViewController.swift in Sources */,
+				A481318E20C41EDD003370C1 /* CategoriesViewController.swift in Sources */,
+				A48131A420C42190003370C1 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
