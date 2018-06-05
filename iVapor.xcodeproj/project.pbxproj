@@ -25,6 +25,8 @@
 		A48131A220C42187003370C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A120C42187003370C1 /* User.swift */; };
 		A48131A420C42190003370C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A320C42190003370C1 /* Category.swift */; };
 		A48131A620C42225003370C1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A520C42225003370C1 /* ErrorPresenter.swift */; };
+		A49A716F20C543B600863662 /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49A716E20C543B600863662 /* ResourceRequest.swift */; };
+		A4E0D58D20C654B6000C07DD /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		A48131A120C42187003370C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A48131A320C42190003370C1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A48131A520C42225003370C1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		A49A716E20C543B600863662 /* ResourceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
+		A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				A48131A520C42225003370C1 /* ErrorPresenter.swift */,
+				A49A716E20C543B600863662 /* ResourceRequest.swift */,
+				A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E0D58D20C654B6000C07DD /* ResultPresenter.swift in Sources */,
 				A48131A220C42187003370C1 /* User.swift in Sources */,
+				A49A716F20C543B600863662 /* ResourceRequest.swift in Sources */,
 				A481319620C4203B003370C1 /* CreateAcronymViewController.swift in Sources */,
 				A48131A020C4217D003370C1 /* Acronym.swift in Sources */,
 				A41548D520BFD85A00580827 /* ViewController.swift in Sources */,
@@ -289,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

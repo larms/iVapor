@@ -70,7 +70,7 @@
                             <outlet property="delegate" destination="YXI-pU-XEK" id="VOI-lY-6Pb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Acraonyms" id="vQ8-VJ-6dB">
+                    <navigationItem key="navigationItem" title="Acraonyms" largeTitleDisplayMode="always" id="vQ8-VJ-6dB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NGC-fA-Qr0">
                             <color key="tintColor" red="0.0" green="0.69019607839999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -78,13 +78,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Qsp-BB-vMw">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refresh:" destination="YXI-pU-XEK" eventType="valueChanged" id="UL6-mg-uZP"/>
-                        </connections>
-                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sns-0X-XcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +207,7 @@
                             <outlet property="delegate" destination="CGT-bZ-85v" id="dDt-TV-7ee"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Users" id="ayz-hk-ulf">
+                    <navigationItem key="navigationItem" title="Users" largeTitleDisplayMode="always" id="ayz-hk-ulf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="s9D-Go-edU">
                             <color key="tintColor" red="0.0" green="0.69019607843137254" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -222,13 +215,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ZyY-X7-yen">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refresh:" destination="CGT-bZ-85v" eventType="valueChanged" id="li6-We-ppm"/>
-                        </connections>
-                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xA-ri-LYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,7 +259,7 @@
                             <outlet property="delegate" destination="DvF-5I-66C" id="aSm-Uf-nTi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="5DS-sL-IZM">
+                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="5DS-sL-IZM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wYe-X6-Upj">
                             <color key="tintColor" red="0.0" green="0.69019607839999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -281,13 +267,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Hlh-Va-zmc">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refresh:" destination="DvF-5I-66C" eventType="valueChanged" id="6eI-lM-lCl"/>
-                        </connections>
-                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6EI-8d-Pn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -653,6 +632,6 @@
         <image name="users-nor" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="laF-6x-WLr"/>
+        <segue reference="5mV-mR-sC0"/>
     </inferredMetricsTieBreakers>
 </document>
