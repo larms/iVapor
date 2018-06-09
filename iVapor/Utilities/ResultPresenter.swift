@@ -49,9 +49,19 @@ class ResultPresenter {
 }
 
 let kScreenH = UIScreen.main.bounds.size.height
+let kScreenScale = UIScreen.main.scale
+/// AlertView 只有 title 时的高度
+private let onlyTitleH: CGFloat = 30
+/// AlertView 包含 title 和 message
+private let titleAddMessageH: CGFloat = 40
+/// AlertView 包含 actions, title 和 message
+private let multieH: CGFloat = 62
+private let actionBtnH: CGFloat = 22
+
 extension UIAlertController {
     /// alertView 的高度约束值, 如果 alertView 的内容显示不全时调整这个数值
-    private static var alertViewHeight: CGFloat = 62 * UIScreen.main.scale
+    private static var alertViewHeight: CGFloat = multieH * kScreenScale
+    
     
     /// 为 UIAlertController 添加 BlurEffect 遮盖效果, 设置在其他子控件之后
     func addBlurEffectCover(style: UIBlurEffectStyle = .light) {
@@ -75,22 +85,35 @@ extension UIAlertController {
             setValue(messageAttributed, forKey: "attributedMessage")
         }
 
-        var y = CGFloat()
+        var y: CGFloat
+        var num: CGFloat
         let count = actions.count
         if count == 0 && message == "" {    // 只有 title
-            UIAlertController.alertViewHeight = 32 * UIScreen.main.scale
-            y = -kScreenH / 2 + 32
+            UIAlertController.alertViewHeight = onlyTitleH * kScreenScale
+            y = -kScreenH / 2 + onlyTitleH
         } else if count == 0 && message != ""  {    // 只有 title 和 message
-            UIAlertController.alertViewHeight = 40 * UIScreen.main.scale
-            y = -kScreenH / 2 + 40
+            UIAlertController.alertViewHeight = titleAddMessageH * kScreenScale
+            y = -kScreenH / 2 + titleAddMessageH
         } else if actions.count > 0 && message != "" {    // 有 actions, title 和 message
-            let num: CGFloat = CGFloat(40 + count * 22)
-            UIAlertController.alertViewHeight = num * UIScreen.main.scale
-            y = -kScreenH / 2 + num
-        } else {
-            let num: CGFloat = CGFloat(32 + count * 22)
-            UIAlertController.alertViewHeight = num * UIScreen.main.scale
-            y = -kScreenH / 2 + num
+            if actions.count == 2 { // 2个 actionButton 时, 会左右并排显示, 此时相当于1个 actionButton 的高度
+                num = titleAddMessageH + actionBtnH
+                UIAlertController.alertViewHeight = num * kScreenScale
+                y = -kScreenH / 2 + num
+            } else {
+                num = titleAddMessageH + actionBtnH * CGFloat(count)
+                UIAlertController.alertViewHeight = num * kScreenScale
+                y = -kScreenH / 2 + num
+            }
+        } else {    // 包含 actions 和 title, 没有 message
+            if actions.count == 2 {
+                num = onlyTitleH + actionBtnH
+                UIAlertController.alertViewHeight = num * kScreenScale
+                y = -kScreenH / 2 + num
+            } else {
+                num = onlyTitleH + actionBtnH * CGFloat(count)
+                UIAlertController.alertViewHeight = num * kScreenScale
+                y = -kScreenH / 2 + num
+            }
         }
         
         // 修改 UIAlertController.view 的高度约束

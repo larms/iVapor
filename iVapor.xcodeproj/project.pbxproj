@@ -26,6 +26,7 @@
 		A48131A420C42190003370C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A320C42190003370C1 /* Category.swift */; };
 		A48131A620C42225003370C1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48131A520C42225003370C1 /* ErrorPresenter.swift */; };
 		A49A716F20C543B600863662 /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49A716E20C543B600863662 /* ResourceRequest.swift */; };
+		A4C45DFD20CA55C600009082 /* AcronymRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C45DFC20CA55C600009082 /* AcronymRequest.swift */; };
 		A4E0D58D20C654B6000C07DD /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		A48131A320C42190003370C1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A48131A520C42225003370C1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		A49A716E20C543B600863662 /* ResourceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
+		A4C45DFC20CA55C600009082 /* AcronymRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcronymRequest.swift; sourceTree = "<group>"; };
 		A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			children = (
 				A48131A520C42225003370C1 /* ErrorPresenter.swift */,
 				A49A716E20C543B600863662 /* ResourceRequest.swift */,
+				A4C45DFC20CA55C600009082 /* AcronymRequest.swift */,
 				A4E0D58C20C654B6000C07DD /* ResultPresenter.swift */,
 			);
 			path = Utilities;
@@ -211,6 +214,7 @@
 				A48131A020C4217D003370C1 /* Acronym.swift in Sources */,
 				A41548D520BFD85A00580827 /* ViewController.swift in Sources */,
 				A481318C20C41EAB003370C1 /* UsersViewController.swift in Sources */,
+				A4C45DFD20CA55C600009082 /* AcronymRequest.swift in Sources */,
 				A481318A20C41E5C003370C1 /* AcronymsViewController.swift in Sources */,
 				A481319420C41FBD003370C1 /* CreateUserViewController.swift in Sources */,
 				A481319220C41F99003370C1 /* AcronymDetailViewController.swift in Sources */,

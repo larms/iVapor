@@ -72,6 +72,21 @@ class AcronymsViewController: UITableViewController {
             }
         }
     }
+    
+    // MARK: - Navigation
+    // 在基于storyboard的应用程序中, 通常需要在导航前做一些准备
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 验证这是点击 cell 跳转到 AcronymDetailViewController 的 segue
+        if segue.identifier == "AcronymsToAcronymDetail" {
+            // 确保 segue.destinatio 和 selectedUser 有值
+            guard let destination = segue.destination as? AcronymDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else {
+                    return
+            }
+            // 设置 AcronymDetailViewController 的 acronym
+            destination.acronym = acronyms[indexPath.row]
+        }
+    }
 }
 
 // MARK: - Table view data source

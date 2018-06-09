@@ -42,7 +42,36 @@ class AcronymDetailViewController: UITableViewController {
     }
     
     private func getAcronymData() {
+        ResultPresenter.show(on: self)
+        guard let id = acronym?.id else {
+            return
+        }
         
+        // 创建AcronymRequest来获取数据
+        let acronymDetailRequester = AcronymRequest(acronymID: id)
+        // 获取Acronym对应的User
+        acronymDetailRequester.getUser { [weak self] result in
+            // 如果获取成功, 则更新Acronym的user, 否则提示错误信息
+            switch result {
+            case .success(let user):
+                self?.user = user
+                ResultPresenter.dismiss(on: self)
+            case .failure:
+                ResultPresenter.showError(message: "获取Acronym的User时出错", on: self)
+            }
+        }
+        
+        // 获取Acronym对应的Category数组
+        acronymDetailRequester.getCategories { [weak self] result in
+            // 如果获取成功, 则更新Acronym的categories, 否则提示错误信息
+            switch result {
+            case .success(let categories):
+                self?.categories = categories
+                ResultPresenter.dismiss(on: self)
+            case .failure:
+                ResultPresenter.showError(message: "获取Acronym的categories时出错", on: self)
+            }
+        }
     }
     
     private func updateAcronymView() {

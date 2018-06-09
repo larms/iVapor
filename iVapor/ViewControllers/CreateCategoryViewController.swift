@@ -25,6 +25,21 @@ class CreateCategoryViewController: UITableViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        guard let name = nameTextField.text, !name.isEmpty else {
+            ErrorPresenter.showError(message: "必须输入name!", on: self)
+            return
+        }
+        
+        let category = Category(name: name)
+        ResourceRequest<Category>(resourcePath: "categories").save(category) { [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async { [weak self] in
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            case .failure:
+                ErrorPresenter.showError(message: "保存Category存在问题", on: self)
+            }
+        }
     }
 }
