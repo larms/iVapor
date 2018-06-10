@@ -80,4 +80,43 @@ struct AcronymRequest {
         
         dataTask.resume()
     }
+    
+    /// 更新Acronym, 使用PUT请求
+    ///
+    /// - Parameters:
+    ///   - updateData: Acronym模型
+    ///   - completion: completion(_:)闭包, 返回结果
+    func update(with updateData: Acronym, completion: @escaping (SaveResult<Acronym>) -> Void) {
+        do {
+            // 创建和配置URLRequest
+            var urlRequest = URLRequest(url: resource)
+            urlRequest.httpMethod = "PUT"
+            urlRequest.httpBody = try JSONEncoder().encode(updateData)  // 将模型数据编码为jsonData
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, _ in
+                // 本地获取数据时模拟请求延迟
+                Thread.sleep(forTimeInterval: 1.25)
+                
+                // 确保有HTTP响应, 检查响应状态为 200 OK, 且响应体中有数据
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,
+                    let jsonData = data else {
+                        completion(.failure)
+                        return
+                }
+                
+                do {
+                    // 将响应数据解码为 Acronym
+                    let acronym = try JSONDecoder().decode(Acronym.self, from: jsonData)
+                    completion(.success(acronym))
+                } catch {
+                    completion(.failure)
+                }
+            }
+            dataTask.resume()
+            
+        } catch {
+            completion(.failure)
+        }
+    }
 }

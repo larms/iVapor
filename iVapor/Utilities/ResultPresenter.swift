@@ -44,7 +44,9 @@ class ResultPresenter {
     }
     
     static func dismiss(on viewController: UIViewController?) {
-        viewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            viewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

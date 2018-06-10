@@ -23,7 +23,18 @@ class CreateAcronymViewController: UITableViewController {
         super.viewDidLoad()
 
         acronymShortTextField.becomeFirstResponder()
-        populateUsers()
+        // 如果 acronym 属性已存在, 表示这个属性被设置在 AcronymDetailViewController 中的 prepare(for:sender:), 那么此时是在编辑acronym
+        if let acronym = acronym {
+            // 设置acronym数据
+            acronymShortTextField.text = acronym.short
+            acronymLongTextField.text = acronym.long
+            userLabel.text = selectedUser?.name
+            // 标题设置为 Edit Acronym
+            navigationItem.title = "Edit Acronym"
+            
+        } else {    // 否则, 表示点击 AcronymsViewController 右上角 "+"按钮 创建一个新的acronym
+            populateUsers()
+        }
     }
     
     private func populateUsers() {
@@ -71,21 +82,40 @@ class CreateAcronymViewController: UITableViewController {
         
         // 根据提供的数据创建acronym
         let acronym = Acronym(short: shortText, long: longText, userID: userID)
-        // 为 acronym 创建 ResourceRequest, 并调用 save(_:completion:) 保存 acronym
-        ResourceRequest<Acronym>(resourcePath: "acronyms").save(acronym) { [weak self] result in
-            switch result {
-            // 保存成功, 返回到上一个控制器: AcronymsViewController
-            case .success(_):
-                DispatchQueue.main.async { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
+        if self.acronym != nil {
+            // 确保acronym有有效ID
+            guard let existingID = self.acronym?.id else {
+                ResultPresenter.showError(message: "更新Acronym出错!", on: self)
+                return
+            }
+            // 创建 AcronymRequest 并调用 update(with:completion:) 更新 acronym
+            AcronymRequest(acronymID: existingID).update(with: acronym) { result in
+                switch result {
+                // 存储更新的Acronym, 并触发 unwind segue 跳转到 AcronymsDetailViewController
+                case .success(let updatedAcronym):
+                    self.acronym = updatedAcronym
+                    DispatchQueue.main.async { [weak self] in
+                        self?.performSegue(withIdentifier: "UpdateAcronymDetails", sender: nil)
+                    }
+                case .failure:
+                    ErrorPresenter.showError(message: "保存Acronym是出错!", on: self)
                 }
-            // 保存失败, 则显示错误信息
-            case .failure:
-                ResultPresenter.showError(message: "保存acronym是出错", on: self)
+            }
+        } else {
+            // 为 acronym 创建 ResourceRequest, 并调用 save(_:completion:) 保存 acronym
+            ResourceRequest<Acronym>(resourcePath: "acronyms").save(acronym) { [weak self] result in
+                switch result {
+                // 保存成功, 返回到上一个控制器: AcronymsViewController
+                case .success(_):
+                    DispatchQueue.main.async { [weak self] in
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                // 保存失败, 则显示错误信息
+                case .failure:
+                    ResultPresenter.showError(message: "保存acronym是出错", on: self)
+                }
             }
         }
-        
-        
     }
     
     /// unwind segue 在 CreateAcronymViewController 调用 updateSelectedUser(_:)

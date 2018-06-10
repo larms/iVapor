@@ -42,7 +42,6 @@ class AcronymDetailViewController: UITableViewController {
     }
     
     private func getAcronymData() {
-        ResultPresenter.show(on: self)
         guard let id = acronym?.id else {
             return
         }
@@ -55,7 +54,6 @@ class AcronymDetailViewController: UITableViewController {
             switch result {
             case .success(let user):
                 self?.user = user
-                ResultPresenter.dismiss(on: self)
             case .failure:
                 ResultPresenter.showError(message: "获取Acronym的User时出错", on: self)
             }
@@ -67,7 +65,6 @@ class AcronymDetailViewController: UITableViewController {
             switch result {
             case .success(let categories):
                 self?.categories = categories
-                ResultPresenter.dismiss(on: self)
             case .failure:
                 ResultPresenter.showError(message: "获取Acronym的categories时出错", on: self)
             }
@@ -82,7 +79,12 @@ class AcronymDetailViewController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func updateAcronymDetails(_ segue: UIStoryboardSegue) {
+        guard let controller = segue.source as? CreateAcronymViewController else {
+            return
+        }
         
+        user = controller.selectedUser
+        acronym = controller.acronym
     }
 
     // MARK: - Navigation
