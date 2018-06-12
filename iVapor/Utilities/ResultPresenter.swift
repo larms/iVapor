@@ -34,6 +34,21 @@ class ResultPresenter {
         }
     }
     
+    static func show(title: String = "获取数据中...", message: String? = "", on viewController: UIViewController?, dismissAction: ((UIAlertAction) -> Void)? = nil) {
+        weak var vc = viewController
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addBlurEffectCover()
+            vc?.present(alertController, animated: true)
+            
+            // 一会儿自动 dismiss
+            let deadline = DispatchTime.now() + .milliseconds(1200)
+            DispatchQueue.main.asyncAfter(deadline: deadline) {
+                vc?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     static func show(message: String? = "", on viewController: UIViewController? = nil, dismissAction: ((UIAlertAction) -> Void)? = nil) {
         weak var vc = viewController
         DispatchQueue.main.async {

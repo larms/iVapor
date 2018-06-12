@@ -13,6 +13,11 @@ enum AcronymUserRequestResult {
     case failure
 }
 
+enum CategoryAddResult {
+    case success
+    case failure
+}
+
 struct AcronymRequest {
     let resource: URL
     init(acronymID: Int) {
@@ -118,5 +123,37 @@ struct AcronymRequest {
         } catch {
             completion(.failure)
         }
+    }
+    
+    /// 删除
+    func delete() {
+        var urlRequest = URLRequest(url: resource)
+        urlRequest.httpMethod = "DELETE"
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest)
+        dataTask.resume()
+    }
+    
+    /// 为 Acronym 添加 Category
+    func add(category: Category, completion: @escaping (CategoryAddResult) -> Void) {
+        guard let categoryID = category.id else {
+            completion(.failure)
+            return
+        }
+        
+        // 创建URLRequest并发送请求
+        let url = resource.appendingPathComponent("categories").appendingPathComponent("\(categoryID)")
+        // 3
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { _, response, _ in
+            // 确保有HTTP响应, 并且状态码是 201 Created
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 else {
+                completion(.failure)
+                return
+            }
+            completion(.success)
+        }
+        dataTask.resume()
     }
 }

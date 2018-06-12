@@ -97,6 +97,13 @@ class AcronymDetailViewController: UITableViewController {
             // 传值, 为CreateAcronymViewController的selectedUser和acronym赋值
             destination.selectedUser = user
             destination.acronym = acronym
+        } else if segue.identifier == "AddToCategorySegue" {
+            guard let destination = segue.destination as? AddToCategoryViewController else {
+                return
+            }
+            
+            destination.acronym = acronym
+            destination.selectedCategories = categories
         }
     }
 }
@@ -104,7 +111,7 @@ class AcronymDetailViewController: UITableViewController {
 // MARK: - Table view data source
 extension AcronymDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return  5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,8 +132,21 @@ extension AcronymDetailViewController {
             cell.textLabel?.text = user?.name
         case 3:
             cell.textLabel?.text = categories[indexPath.row].name
+        case 4:
+            cell.textLabel?.text = "Add To Category"
         default:
             break
+        }
+        
+        // 只有第5组的cell才允许选中和启用用户交互
+        if indexPath.section == 4 {
+            cell.selectionStyle = .default
+            cell.accessoryType = .disclosureIndicator
+            cell.isUserInteractionEnabled = true
+        } else {
+            cell.selectionStyle = .none
+            cell.accessoryType = .none
+            cell.isUserInteractionEnabled = false
         }
         
         return cell

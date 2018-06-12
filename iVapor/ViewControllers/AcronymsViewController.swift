@@ -103,4 +103,19 @@ extension AcronymsViewController {
         
         return cell
     }
+    
+    /// cell 左滑删除 Acronym
+    /// 如果此 Acronym 关联了 categorys, 它不会因为 App 在 API 中删除而删除, 下拉刷新 tableView 将会再次出现
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 创建 AcronymRequest 并调用 delete() 删除API中 acronymID 对应的 Acronym
+        if let id = acronyms[indexPath.row].id {
+            let acronymDetailRequester = AcronymRequest(acronymID: id)
+            acronymDetailRequester.delete()
+        }
+        
+        // 从 acronyms 中删除该 Acronym
+        acronyms.remove(at: indexPath.row)
+        // 用 .automatic 动画效果移除这个cell
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 }
